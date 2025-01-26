@@ -69,7 +69,7 @@ const App = () => {
               >
                 <option value="en">Eng</option>
                 <option value="uz">Uzb</option>
-                <option value="qq">Qar</option>
+                <option value="qq">Qqr</option>
               </select>
             </div>
           </div>
@@ -327,7 +327,7 @@ const App = () => {
 
 
           <div>
-            <h1 className="md:text-[100px] text-[55px] font-600">
+            <h1 className="md:text-[100px] text-[55px] font-eina font-600">
               Info about <span className="eco-text">supersets</span>
             </h1>
             <p className="text-[30px] font-[400]">
@@ -348,7 +348,7 @@ const App = () => {
 
           {/* Info sectoin */}
           <div className="py-5">
-            <h1 className="text-[60px] text-[#333] font-[600]  md:text-[100px]">
+            <h1 className="text-[60px] text-[#333] font-[600] font-eina  md:text-[100px]">
               Info about <span className="eco-text">logo</span>
             </h1>
             <p className="text-[30px]  md:text-[37px]">
