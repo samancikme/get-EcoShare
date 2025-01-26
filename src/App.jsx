@@ -20,8 +20,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import APK from "./assets/app-debug.apk";
 import { users } from "./constants/Feedbacks"
-import { useSelector } from "react-redux";
-import { use } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 const App = () => {
   useEffect(() => {
@@ -32,10 +31,12 @@ const App = () => {
     });
   }, []);
 
-
+  const dispatch = useDispatch()
   const { lang } = useSelector(state => state.page)
   console.log(lang)
-
+  console.log(users)
+  const [lan, setLan] = useState('qq')
+  console.log(lan)
   return (
     <>
 
@@ -60,8 +61,12 @@ const App = () => {
                 Download
               </a>
             </div>
-            <div className="border px-2">
-              <select name="" id="">
+            <div className=" px-2">
+              <select
+                onChange={(e) => dispatch({ type: 'SET_LANGUAGE', value: e.target.value })}
+                name="language"
+                id="language-select"
+              >
                 <option value="en">Eng</option>
                 <option value="uz">Uzb</option>
                 <option value="qq">Qar</option>
@@ -378,31 +383,34 @@ const App = () => {
 
           {/* feedback section */}
           <div className="row py-5 gap-5">
-            {users.map(user => (
-              <div key={user.id} className="col-lg-4 mt-3 col-md-6 col-sm-6 col-12 min-[1200px]:w-[45%] w-full">
-                <div>
-                  <div key={user.id} className="stars w-100 flex gap-[10px] items-center">
-                    {user.stars.map((a, index) => (
-                      <img
-                        key={index}
-                        src={Star}
-                        className="w-[20px] sm:w-[30px] md:w-[40px] "
-                        alt="" />))}
-                    {user.starWhite?.map(a => (
-                      <img
-                        src={Star2}
-                        className="w-[20px] sm:w-[30px] md:w-[40px] "
-                        alt="" />))}
+            {lang ? users.map(user => {
+              console.log(lang)
+              return (
+                <div key={user.id} className="col-lg-4 mt-3 col-md-6 col-sm-6 col-12 min-[1200px]:w-[45%] w-full">
+                  <div>
+                    <div key={user.id} className="stars w-100 flex gap-[10px] items-center">
+                      {user.stars.map((a, index) => (
+                        <img
+                          key={index}
+                          src={Star}
+                          className="w-[20px] sm:w-[30px] md:w-[40px] "
+                          alt="" />))}
+                      {user.starWhite?.map(a => (
+                        <img
+                          src={Star2}
+                          className="w-[20px] sm:w-[30px] md:w-[40px] "
+                          alt="" />))}
+                    </div>
+                    <div className="name md:text-[35px] text-[20px] mt-2">
+                      {user.name[lang]}
+                    </div>
+                    <p className="md:text-[25px] text-[18px] text-[#A8A9B2]">
+                      {user.post[lang]}
+                    </p>
                   </div>
-                  <div className="name md:text-[35px] text-[20px] mt-2">
-                    {user.name.en}
-                  </div>
-                  <p className="md:text-[25px] text-[18px] text-[#A8A9B2]">
-                    {user.post.en}
-                  </p>
                 </div>
-              </div>
-            ))}
+              )
+            }) : ""}
           </div>
           {/* feedback section end */}
 
