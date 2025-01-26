@@ -18,7 +18,7 @@ import {
 } from "./assets";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import APK from "./assets/app-debug.apk";
+import APK from "./assets/Steps.apk";
 import { users } from "./constants/Feedbacks"
 import { useDispatch, useSelector } from "react-redux";
 
