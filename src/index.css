@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@font-face {
+  font-family: 'MyCustomFont';
+  src: url('./Eina03-SemiBold.ttf') format('truetype');
+}
+
+
+
+body {
+  background-color: #f2f2f2;
+  color: #666666;
+  width: 100vw;
+  font-family: "Raleway", serif;
+  overflow-x: hidden;
+}
+.border {
+  border: none !important;
+  border-bottom: 1px solid #95be6d !important;
+}
+.gold {
+  color: #ffd700;
+}
+.eco-text {
+  color: #95be6d;
+}
+
+.secondary {
+  color: rgb(168, 169, 178);
+}
